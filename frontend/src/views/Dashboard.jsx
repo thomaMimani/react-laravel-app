@@ -1,3 +1,7 @@
+import PageComponent from "../components/PageComponent";
+
 export default function Dashboard() {
-    return 'dashboard'
+    return <PageComponent >
+        Children
+    </PageComponent>
 }
