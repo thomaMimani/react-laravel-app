@@ -1,20 +1,34 @@
-const { createContext, useState, useContext } = require("react");
+import { createContext, useContext, useState } from "react"
 
-const StateContext = createContext({})
+const StateContext = createContext({
+    currentUser: {},
+    userToken: null,
+    setCurrentUser: () => { },
+    setUserToken: () => { }
+})
 
-export const ContextProvider = ({children})=>{
-    const [currentUser,setCurrentUser] = useState()
-    const [userToken,setUserToken] = useState()
-    return(
-        <StateContext.Provider value = {{
+export const ContextProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState({
+        name: 'Tom Cook',
+        email: 'tom@example.com',
+    })
+    const [userToken, setUserToken] = useState(1234)
+    return (
+        <StateContext.Provider value={{
             currentUser,
             setCurrentUser,
             userToken,
-            setCurrentUser
+            setUserToken
         }}>
-             {children}
+            {children}
         </StateContext.Provider>
     )
 }
 
-export const userStateContext = useContext(StateContext)
+export const useUserStateContext = () => {
+    const context = useContext(StateContext)
+    if (!context) {
+        throw new Error("useUserStateContext must be used within a ContextProvider")
+    }
+    return context
+}
