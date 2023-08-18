@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { useUserStateContext } from '../context/ContextProvider'
+import { useStateContext } from '../context/ContextProvider'
 
 
 const navigation = [
@@ -21,7 +21,7 @@ function classNames(...classes) {
 }
 
 export default function DefaultLayout() {
-    const { currentUser, userToken } = useUserStateContext()
+    const { currentUser, userToken } = useStateContext()
     const location = useLocation()
     const pathname = location.pathname.split('/')
     const navigate = useNavigate();

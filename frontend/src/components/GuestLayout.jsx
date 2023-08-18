@@ -1,10 +1,10 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { useUserStateContext } from "../context/ContextProvider";
+import { useStateContext } from "../context/ContextProvider";
 import { useEffect } from "react";
 
 export default function GuestLayout() {
 
-    const { userToken } = useUserStateContext()
+    const { userToken } = useStateContext()
 
     const navigate = useNavigate();
 
