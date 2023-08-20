@@ -8,7 +8,8 @@ export const TButton = (props) => {
         href = '',
         link = false,
         target = '_blank',
-        children
+        children,
+        onClick = ()=>{}
     } = props
 
     let classes = [
@@ -102,7 +103,7 @@ export const TButton = (props) => {
         <>
             {href && (<a href={href} className={classes.join(' ')} target={target}>{children}</a>)}
             {to && (<Link to={to} className={classes.join(' ')}>{children}</Link>)}
-            {!to && !href && (<button className={classes.join(' ')}>{children}</button>)}
+            {!to && !href && (<button onClick={onClick} className={classes.join(' ')}>{children}</button>)}
         </>
     )
 }

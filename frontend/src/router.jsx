@@ -6,6 +6,7 @@ import Signup from './views/Signup';
 import GuestLayout from './components/GuestLayout';
 import DefaultLayout from './components/DefaultLayout';
 import NotFound from './views/NotFound';
+import SurveyView from './views/SurveyView';
 
 const RouterComponent = () => (
     <Router>
@@ -14,6 +15,7 @@ const RouterComponent = () => (
                 <Route index element={<Dashboard />} />
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='surveys' element={<Surveys />} />
+                <Route path='surveys/create' element={<SurveyView />} />
             </Route>
             <Route path='/' element={<GuestLayout />}>
                 <Route path='login' element={<Login />} />
